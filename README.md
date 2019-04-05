@@ -12,8 +12,14 @@ npm install --save vl-ui-input-field
 npm run demo
 ```
 
+## Gebruik
+```
+<input is='vl-input-field'/>
+```
+
 ## Kanttekening
-TODO
+- Het gaat hier enkel om input, en niet de label of andere validaties
+- De input field search werd hier niet geïmplementeerd en zou een andere component kunnen worden.
 
 ## Credits
 Zie de lijst van [ontwikkelaars](https://github.com/milieuinfo/webcomponent-vl-ui-input-field/graphs/contributors) die meegewerkt hebben aan de webcomponent.

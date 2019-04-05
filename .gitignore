@@ -1,2 +1,6 @@
 .sass-cache/
 *.css.map
+*.iml
+.idea/
+vl-input-field.js
+node_modules/
