@@ -1,4 +1,4 @@
-import {NativeVlElement} from '/node_modules/vl-ui-core/vl-core.src.js';
+import {NativeVlElement} from '/node_modules/vl-ui-core/vl-core.js';
 
 /**
  * `vl-input-field``
@@ -9,7 +9,7 @@ import {NativeVlElement} from '/node_modules/vl-ui-core/vl-core.src.js';
 export class VlInputField extends NativeVlElement(HTMLInputElement) {
 
   static get _observedChildClassAttributes() {
-    return ['focus', 'block', 'small', 'error', 'success', 'disabled', 'inline'];
+    return ['block', 'small', 'error', 'success', 'disabled'];
   }
 
   connectedCallback() {

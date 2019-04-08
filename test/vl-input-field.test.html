@@ -24,7 +24,7 @@
 
     test('krijgt de juiste class wanneer het veld een correct attribuut bevat', () => {
       const field = fixture('vl-input-field-fixture');
-      ['focus', 'block', 'small', 'error', 'success', 'disabled', 'inline'].forEach((attribuut) => {
+      ['block', 'small', 'error', 'success', 'disabled'].forEach((attribuut) => {
         assert.isFalse(field.classList.contains('vl-input-field--' + attribuut));
         field.setAttribute(attribuut, '');
         assert.isTrue(field.classList.contains('vl-input-field--' + attribuut));
