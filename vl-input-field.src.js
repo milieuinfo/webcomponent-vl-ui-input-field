@@ -19,6 +19,10 @@ export class VlInputField extends NativeVlElement(HTMLInputElement) {
   get _classPrefix() {
     return 'vl-input-field--';
   }
+  
+  get _stylePath() {
+    return '../style.css';
+  }
 }
 
 customElements.define('vl-input-field', VlInputField, {extends: 'input'});
