@@ -63,14 +63,16 @@
       test('indien het input veld onderdeel is van een formulier zal de validatie geactiveerd worden', () => {
         const field = fixture('vl-input-field-fixture');
         assert(window.vl.formValidation.dress.neverCalledWith());
-        const formField = fixture('vl-input-field-inside-form-fixture');
-        assert(window.vl.formValidation.dress.calledWith(formField));
+        const form = fixture('vl-input-field-inside-form-fixture');
+        assert(window.vl.formValidation.dress.calledWith(form));
       });
 
-      test('de validatie succes en error class attributen worden correct gezet', () => {
+      test('de validatie succes en error class attributen worden correct gezet indien het input veld onderdeel is van een formulier', () => {
         const field = fixture('vl-input-field-fixture');
+        const formField = fixture('vl-input-field-inside-form-fixture').querySelector('input');
         ['success', 'error'].forEach((type) => {
-          assert.equal(field.getAttribute('data-vl-' + type + '-class'), 'vl-input-field--' + type);
+          assert.isFalse(field.hasAttribute('data-vl-' + type + '-class'));
+          assert.equal(formField.getAttribute('data-vl-' + type + '-class'), 'vl-input-field--' + type);
         });
       });
     });
