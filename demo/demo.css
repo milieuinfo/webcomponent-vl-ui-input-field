@@ -3,9 +3,11 @@
 body {
   padding: 2.5em !important;
   max-width: 1280px !important;
-  margin: auto !important; }
-  body > div:not(:first-child):not([class]) {
-    margin-top: 5rem; }
+  margin: auto !important;
+}
+body > div:not(:first-child):not([class]) {
+  margin-top: 5rem;
+}
 
 .demo {
   border: 1px dotted lightgray;
