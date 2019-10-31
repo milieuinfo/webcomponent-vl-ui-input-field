@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-input-field",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "De \"input-field\" UI component van Webuniversum Vlaanderen als Web Component",
   "main": "vl-input-field.js",
   "scripts": {
