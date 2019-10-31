@@ -66,6 +66,13 @@
         const formField = fixture('vl-input-field-inside-form-fixture');
         assert(window.vl.formValidation.dress.calledWith(formField));
       });
+
+      test('de validatie succes en error class attributen worden correct gezet', () => {
+        const field = fixture('vl-input-field-fixture');
+        ['success', 'error'].forEach((type) => {
+          assert.equal(field.getAttribute('data-vl-' + type + '-class'), 'vl-input-field--' + type);
+        });
+      });
     });
   </script>
 </body>

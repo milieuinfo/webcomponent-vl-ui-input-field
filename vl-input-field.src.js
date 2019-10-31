@@ -23,6 +23,8 @@ export class VlInputField extends VlFormValidation(NativeVlElement(HTMLInputElem
 
   connectedCallback() {
     this.classList.add('vl-input-field');
+    this.setAttribute('data-vl-success-class', 'vl-input-field--success');
+    this.setAttribute('data-vl-error-class', 'vl-input-field--error');
     this._dress();
   }
 
