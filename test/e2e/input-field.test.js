@@ -1,20 +1,14 @@
-
-const { assert, driver } = require('vl-ui-core').Test;
+const { driver } = require('vl-ui-core').Test.Setup;
 const VlInputFieldPage = require('./pages/vl-input-field.page');
 
 describe('vl-input-field', async () => {
     const vlInputFieldPage = new VlInputFieldPage(driver);
 
-    before((done) => {
-        vlInputFieldPage.load().then(() => {
-            done()
-        });
+    before(async () => {
+        return vlInputFieldPage.load();
     });
 
-   after((done) => {
-       if(driver) {
-           driver.quit();
-           done();
-       }
-   })
+    after(async () => {
+        return driver.quit();
+    });
 });

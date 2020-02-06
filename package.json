@@ -2,7 +2,26 @@
   "name": "vl-ui-input-field",
   "version": "1.1.2",
   "description": "De \"input-field\" UI component van Webuniversum Vlaanderen als Web Component",
-  "main": "vl-index.js",
+  "author": "DIDM",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./src/index.js",
+    "node": "./index.js",
+    "default": "./index.js"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-input-field#readme",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-input-field/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-input-field.git"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+  },
   "scripts": {
     "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
     "prepare:util": "npm explore vl-ui-util -- npm run util",
@@ -20,36 +39,35 @@
     "test:e2e:safari": "mocha --safari",
     "test:server:start": "http-server &",
     "release": "np",
-    "release:prepare": "npm run release:prepare:build && npm run release:prepare:css && npm run release:prepare:commit",
-    "release:prepare:build": "minify *.src.js > vl-input-field.js",
-    "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-input-field/style.css' vl-input-field.js",
-    "release:prepare:commit": "git add -f vl-input-field.js && git commit --amend --no-edit && git pull",
+    "release:prepare": "npm run release:prepare:build && npm run release:prepare:commit",
+    "release:prepare:build": "npm run release:prepare:build:es6 && npm run release:prepare:build:es6:min && npm run release:prepare:build:node",
+    "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:replace",
+    "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-input-field.js",
+    "release:prepare:build:es6:replace": "replace '\\.\\./style.css' '/node_modules/vl-ui-input-field/style.css' vl-input-field.js",
+    "release:prepare:build:es6:min": "npm run release:prepare:build:es6:min:copy && npm run release:prepare:build:es6:min:explode && npm run release:prepare:build:es6:min:minify",
+    "release:prepare:build:es6:min:copy": "cp -R -f ./src/*.src.js ./vl-input-field.tmp.min.js",
+    "release:prepare:build:es6:min:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-input-field.tmp.min.js",
+    "release:prepare:build:es6:min:minify": "minify ./vl-input-field.tmp.min.js > ./vl-input-field.min.js && rm -rf vl-input-field.tmp.min.js",
+    "release:prepare:build:node": "npm run release:prepare:build:node:copy && npm run release:prepare:build:node:replace && npm run release:prepare:build:node:explode",
+    "release:prepare:build:node:copy": "cp -R -f ./src/*.src.js .",
+    "release:prepare:build:node:replace": "npm run release:prepare:build:node:replace:src && npm run release:prepare:build:node:replace:dist",
+    "release:prepare:build:node:replace:src": "replace  '/node_modules/vl-ui-(.*)/vl-(.*).js' 'vl-ui-$2' vl-input-field.src.js",
+    "release:prepare:build:node:replace:dist": "replace  '/node_modules/(.*)/vl-(.*).js' 'vl-ui-$2.js' vl-input-field.src.js",
+    "release:prepare:build:node:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-input-field.src.js",
+    "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
     "demo": "http-server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-input-field.git"
-  },
-  "author": "DIDM",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-input-field/issues"
-  },
-  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-input-field#readme",
   "dependencies": {
-    "vl-ui-core": "^3.1.1",
+    "vl-ui-core": "^4.0.0",
     "vl-ui-form-validation": "^1.0.3"
   },
   "peerDependencies": {
-    "vl-ui-core": "^2.0.0",
+    "vl-ui-core": "^4.0.0",
     "vl-ui-form-validation": "^1.0.3"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "3.9.1",
-    "vl-ui-util": "^3.4.4"
-  },
-  "publishConfig": {
-    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+    "vl-ui-util": "^4.0.0"
   }
 }
