@@ -1,6 +1,5 @@
 const VlInputField = require('../components/vl-input-field');
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page, Config } = require('vl-ui-core').Test;
 
 class VlInputFieldPage extends Page {
     async _getInputField(selector) {
