@@ -60,11 +60,11 @@
   },
   "dependencies": {
     "vl-ui-core": "^4.0.0",
-    "vl-ui-form-validation": "^1.0.3"
+    "vl-ui-form-validation": "^2.0.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^4.0.0",
-    "vl-ui-form-validation": "^1.0.3"
+    "vl-ui-form-validation": "^2.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "3.9.1",
