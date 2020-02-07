@@ -1,7 +1,7 @@
 {
   "name": "vl-ui-input-field",
   "version": "1.1.2",
-  "description": "De \"input-field\" UI component van Webuniversum Vlaanderen als Web Component",
+  "description": "Een input veld laat de gebruiker toe om informatie in te voeren in een applicatie.",
   "author": "DIDM",
   "license": "MIT",
   "main": "./src/index.js",
@@ -60,11 +60,11 @@
   },
   "dependencies": {
     "vl-ui-core": "^4.0.0",
-    "vl-ui-form-validation": "^1.0.3"
+    "vl-ui-form-validation": "^2.0.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^4.0.0",
-    "vl-ui-form-validation": "^1.0.3"
+    "vl-ui-form-validation": "^2.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "3.9.1",
