@@ -15,6 +15,63 @@ describe('vl-input-field', async () => {
         await assert.eventually.equal(inputField.getInputValue(), inputText);
     });
 
+    it('Als gebruiker zie ik een gewoon inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputField();
+        await assert.eventually.isTrue(inputField.isEnabled());
+        await assert.eventually.isFalse(inputField.isBlock());
+        await assert.eventually.isFalse(inputField.isError());
+        await assert.eventually.isFalse(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isSmall());
+    });
+
+    it('Als gebruiker zie ik een block inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputFieldBlock();
+        await assert.eventually.isTrue(inputField.isEnabled());
+        await assert.eventually.isTrue(inputField.isBlock());
+        await assert.eventually.isFalse(inputField.isError());
+        await assert.eventually.isFalse(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isSmall());
+    });
+
+    it('Als gebruiker zie ik een error inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputFieldError();
+        await assert.eventually.isTrue(inputField.isEnabled());
+        await assert.eventually.isTrue(inputField.isError());
+        await assert.eventually.isFalse(inputField.isBlock());
+        await assert.eventually.isFalse(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isSmall());
+    });
+
+    it('Als gebruiker zie ik een success inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputFieldSuccess();
+        await assert.eventually.isTrue(inputField.isEnabled());
+        await assert.eventually.isTrue(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isError());
+        await assert.eventually.isFalse(inputField.isBlock());
+        await assert.eventually.isFalse(inputField.isSmall());
+    });
+
+    it('Als gebruiker zie ik een disabled inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputFieldDisabled();
+        await assert.eventually.isFalse(inputField.isEnabled());
+        await assert.eventually.isFalse(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isError());
+        await assert.eventually.isFalse(inputField.isBlock());
+        await assert.eventually.isFalse(inputField.isSmall());
+    });
+
+
+
+    it('Als gebruiker zie ik een small inputfield', async() => {
+        const inputField = await vlInputFieldPage.getInputFieldSmall();
+        await assert.eventually.isTrue(inputField.isEnabled());
+        await assert.eventually.isTrue(inputField.isSmall());
+        await assert.eventually.isFalse(inputField.isSuccess());
+        await assert.eventually.isFalse(inputField.isError());
+        await assert.eventually.isFalse(inputField.isBlock());
+    });
+
+
     after(async () => {
         return driver.quit();
     });
