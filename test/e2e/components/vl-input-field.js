@@ -1,5 +1,4 @@
 const { VlElement } = require('vl-ui-core').Test;
-const { By, Key } = require('selenium-webdriver');
 
 class VlInputField extends VlElement { 
     
