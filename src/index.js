@@ -1,3 +1,3 @@
 module.exports = {
-    VlInputField: require('../vl-input-field.src.js').VlInputField
+    VlInputField: require('../dist/vl-input-field.src.js').VlInputField
 };
