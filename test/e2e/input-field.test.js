@@ -60,8 +60,6 @@ describe('vl-input-field', async () => {
         await assert.eventually.isFalse(inputField.isSmall());
     });
 
-
-
     it('Als gebruiker zie ik een small inputfield', async() => {
         const inputField = await vlInputFieldPage.getInputFieldSmall();
         await assert.eventually.isTrue(inputField.isEnabled());
@@ -69,10 +67,5 @@ describe('vl-input-field', async () => {
         await assert.eventually.isFalse(inputField.isSuccess());
         await assert.eventually.isFalse(inputField.isError());
         await assert.eventually.isFalse(inputField.isBlock());
-    });
-
-
-    after(async () => {
-        return driver.quit();
     });
 });
