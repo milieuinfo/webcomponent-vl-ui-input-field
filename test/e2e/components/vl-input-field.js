@@ -15,7 +15,6 @@ class VlInputField extends VlElement {
     }
 
     async isError() {
-        debugger;
         return this.hasAttribute('error');
     }
 
