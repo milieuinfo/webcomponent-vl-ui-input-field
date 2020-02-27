@@ -1,6 +1,7 @@
 const { VlElement } = require('vl-ui-core').Test;
+const { VlFormValidation } = require('vl-ui-form-validation').Test;
 
-class VlInputField extends VlElement { 
+class VlInputField extends VlFormValidation { 
     
     async setInputValue(content) {
         return this.sendKeys(content);
