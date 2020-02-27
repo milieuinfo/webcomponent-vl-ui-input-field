@@ -12,19 +12,19 @@ class VlInputField extends VlFormValidation {
     }
 
     async isBlock() {
-        return this.hasAttribute('block');
+        return this.hasClass('vl-input-field--block');
     }
 
     async isError() {
-        return this.hasAttribute('error');
+        return this.hasClass('vl-input-field--error');
     }
 
     async isSuccess() {
-        return this.hasAttribute('success');
+        return this.hasClass('vl-input-field--success');
     }
 
     async isSmall() {
-        return this.hasAttribute('small');
+        return this.hasClass('vl-input-field--small');
     }
 }
 
