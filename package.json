@@ -45,11 +45,11 @@
   },
   "dependencies": {
     "vl-ui-core": "^5.0.1",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#UIG-359"
+    "vl-ui-form-validation": "^3.0.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^5.0.1",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#UIG-359"
+    "vl-ui-form-validation": "^3.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "3.9.1",
