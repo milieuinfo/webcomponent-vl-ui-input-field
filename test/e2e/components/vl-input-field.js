@@ -4,6 +4,7 @@ const { VlFormValidation } = require('vl-ui-form-validation').Test;
 class VlInputField extends VlFormValidation { 
     
     async setInputValue(content) {
+    	await this.clear();
         return this.sendKeys(content);
     }
 
@@ -12,19 +13,19 @@ class VlInputField extends VlFormValidation {
     }
 
     async isBlock() {
-        return this.hasClass('vl-input-field--block');
+        return this.hasAttribute('block');
     }
 
     async isError() {
-        return this.hasClass('vl-input-field--error');
+        return this.hasAttribute('error');
     }
 
     async isSuccess() {
-        return this.hasClass('vl-input-field--success');
+        return this.hasAttribute('success');
     }
 
     async isSmall() {
-        return this.hasClass('vl-input-field--small');
+        return this.hasAttribute('small');
     }
 }
 

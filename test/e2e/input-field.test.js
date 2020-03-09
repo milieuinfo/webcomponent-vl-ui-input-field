@@ -49,4 +49,27 @@ describe('vl-input-field', async () => {
         const inputFieldSmall = await vlInputFieldPage.getInputFieldSmall();
         await assert.eventually.isTrue(inputFieldSmall.isSmall());
     });
+
+   	it('Als gebruiker kan ik aan een input-field validatie regels toevoegen zodat er foutboodschappen verschijnen bij het verkeerdelijk gebruik van het input-field', async() => {
+   		await vulFormulierIn("Jos", "BE68 5390 0754 7034");
+   		await assertFormErrors("", "");
+   		await vulFormulierIn("", "BE68 5390 0754 703");
+   		await assertFormErrors('Veld "Voornaam" is verplicht', 'Een geldig "IBAN-nummer" is verplicht');
+   	});
+
+   	async function vulFormulierIn(voornaam, iban) {
+   		const inputFieldVoornaam = await vlInputFieldPage.getInputFieldVoornaam();
+   		const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
+   		await inputFieldVoornaam.setInputValue(voornaam);
+   		await inputFieldIban.setInputValue(iban);
+   		return await vlInputFieldPage.validateForm();
+   	}
+   	
+   	async function assertFormErrors(voornaamErrorMsg, ibanErrorMsg) {
+   		let inputFieldVoornaamErrorMessage = await vlInputFieldPage.getInputFieldVoornaamErrorMessage();
+   		let inputFieldIbanErrorMessage = await vlInputFieldPage.getInputFieldIbanErrorMessage();
+   		await assert.eventually.equal(inputFieldVoornaamErrorMessage.getText(), voornaamErrorMsg);
+   		await assert.eventually.equal(inputFieldIbanErrorMessage.getText(), ibanErrorMsg);
+   	}
+   	
 });
