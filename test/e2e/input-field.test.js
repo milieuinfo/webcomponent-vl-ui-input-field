@@ -11,20 +11,20 @@ describe('vl-input-field', async () => {
 	it ('Als gebruiker kan ik text inputten in een inputfield', async() => {
 		const inputText = 'https://webcomponenten.omgeving.vlaanderen.be/doc/index.html';
 		const inputField = await vlInputFieldPage.getInputField();
-		await inputField.setInputValue(inputText);
-		await assert.eventually.equal(inputField.getInputValue(), inputText);
+		await inputField.setValue(inputText);
+		await assert.eventually.equal(inputField.getValue(), inputText);
 	});
 
 	it('Als gebruiker zie ik het onderscheid tussen een gewoon inputfield en een block inputfield', async() => {
 		const inputFieldNotBlock = await vlInputFieldPage.getInputField();
 		await assert.eventually.isFalse(inputFieldNotBlock.isBlock());
 		const inputFieldBlock = await vlInputFieldPage.getInputFieldBlock();
-		await assert.eventually.isTrue(inputFieldBlock.isEnabled());
+		await assert.eventually.isTrue(inputFieldBlock.isBlock());
 	});
 
 	it('Als gebruiker zie ik het onderscheid tussen een gewoon inputfield en een error inputfield', async() => {
 		const inputFieldNotError = await vlInputFieldPage.getInputField();
-		await assert.eventually.isFalse(inputFieldNotError.isBlock());
+		await assert.eventually.isFalse(inputFieldNotError.isError());
 		const inputFieldError = await vlInputFieldPage.getInputFieldError();
 		await assert.eventually.isTrue(inputFieldError.isError());
 	});
@@ -43,6 +43,11 @@ describe('vl-input-field', async () => {
 		await assert.eventually.isFalse(inputFieldNotEnabled.isEnabled());
 	});
 
+	it('Als gebruiker kan ik geen waarde zetten in een disabled input veld', async() => {
+		const inputFieldDisabled = await vlInputFieldPage.getInputFieldDisabled();
+		await assert.isRejected(inputFieldDisabled.setValue("foobar"));
+	});
+	
 	it('Als gebruiker zie ik het onderscheid tussen een gewoon inputfield en een small inputfield', async() => {
 		const inputFieldNotSmall = await vlInputFieldPage.getInputField();
 		await assert.eventually.isFalse(inputFieldNotSmall.isSmall());
@@ -60,8 +65,8 @@ describe('vl-input-field', async () => {
 	async function vulFormulierIn(voornaam, iban) {
 		const inputFieldVoornaam = await vlInputFieldPage.getInputFieldVoornaam();
 		const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
-		await inputFieldVoornaam.setInputValue(voornaam);
-		await inputFieldIban.setInputValue(iban);
+		await inputFieldVoornaam.setValue(voornaam);
+		await inputFieldIban.setValue(iban);
 		return await vlInputFieldPage.validateForm();
 	}
 

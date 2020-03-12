@@ -3,12 +3,12 @@ const { VlFormValidation } = require('vl-ui-form-validation').Test;
 
 class VlInputField extends VlFormValidation { 
     
-    async setInputValue(content) {
+    async setValue(content) {
     	await this.clear();
         return this.sendKeys(content);
     }
 
-    async getInputValue() {
+    async getValue() {
         return this.getAttribute('value');
     }
 
