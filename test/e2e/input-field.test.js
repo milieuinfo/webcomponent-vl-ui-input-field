@@ -62,6 +62,18 @@ describe('vl-input-field', async () => {
 		await assertFormErrors('Veld "Voornaam" is verplicht', 'Een geldig "IBAN-nummer" is verplicht');
 	});
 
+	it('Als gebruiker kan ik een input event opvangen als er iets in een input field getypt wordt en als het inputfield wordt leeggemaakt', async() => {
+		const inputText = "foo";
+		const inputFieldMetEvent = await vlInputFieldPage.getInputFieldMetEvent();
+		const inputFieldCopy = await vlInputFieldPage.getInputFieldCopy();
+
+		await inputFieldMetEvent.setValue(inputText);
+		await assert.eventually.equal(inputFieldCopy.getValue(), inputText);
+
+		await inputFieldMetEvent.clear();
+		await assert.eventually.equal(inputFieldCopy.getValue(), '');
+	});
+
 	async function vulFormulierIn(voornaam, iban) {
 		const inputFieldVoornaam = await vlInputFieldPage.getInputFieldVoornaam();
 		const inputFieldIban = await vlInputFieldPage.getInputFieldIban();

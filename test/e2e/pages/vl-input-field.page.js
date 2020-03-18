@@ -51,6 +51,14 @@ class VlInputFieldPage extends Page {
 		const validateFormButton = await this.driver.findElement(By.css("#form-validate-button"));
 		return validateFormButton.click();
 	}
+
+	async getInputFieldMetEvent() {
+		return this._getInputField('#input-field-met-event');
+	}
+
+	async getInputFieldCopy() {
+		return this._getInputField('#input-field-copy');
+	}
 	
 	async load() {
 		await super.load(Config.baseUrl + '/demo/vl-input-field.html');
