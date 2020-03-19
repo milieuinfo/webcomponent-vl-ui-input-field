@@ -136,5 +136,43 @@
         </div>
     </div>
 
+    <div>
+        <h2>Input field reageert op input-event</h2>
+        <pre>
+            <code class="line-numbers language-markup">
+                &lt;label for="input-field-met-event" block&gt;Origineel&lt;/label&gt;
+                &lt;input is="vl-input-field" id="input-field-met-event" block/&gt;
+                &lt;label for="input-field-copy" block&gt;Kopie&lt;/label&gt;
+                &lt;input is="vl-input-field" id="input-field-copy" disabled block /&gt;
+
+                &lt;script&gt;
+                    customElements.whenDefined('vl-input-field').then(() =&gt; {
+                        const inputField = document.querySelector('#input-field-met-event');
+                        inputField.addEventListener('input', (e) =&gt; {
+                            const copy = document.querySelector('#input-field-copy');
+                            copy.value = inputField.value;
+                        });
+                    });
+                &lt;/script&gt;
+            </code>
+        </pre>
+        <div class="demo">
+            <label for="input-field-met-event" block>Origineel</label>
+            <input is="vl-input-field" id="input-field-met-event" block/>
+            <label for="input-field-copy" block>Kopie</label>
+            <input is="vl-input-field" id="input-field-copy" disabled block />
+
+            <script>
+                customElements.whenDefined('vl-input-field').then(() => {
+                    const inputField = document.querySelector('#input-field-met-event');
+                    inputField.addEventListener('input', (e) => {
+                        const copy = document.querySelector('#input-field-copy');
+                        copy.value = inputField.value;
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
   </body>
 </html>
