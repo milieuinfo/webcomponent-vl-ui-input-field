@@ -52,7 +52,7 @@
     "vl-ui-form-validation": "^3.0.2"
   },
   "devDependencies": {
-    "@govflanders/vl-ui-input-field": "3.9.1",
+    "@govflanders/vl-ui-input-field": "3.9.2",
     "vl-ui-util": "^5.1.6"
   }
 }
