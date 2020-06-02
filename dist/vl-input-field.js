@@ -1,5 +1,5 @@
-import { NativeVlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
-import { VlFormValidation } from '/node_modules/vl-ui-form-validation/vl-form-validation.src.js';
+import { NativeVlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.js';
+import { VlFormValidation } from '/node_modules/vl-ui-form-validation/dist/vl-form-validation.js';
 
 Promise.all([
   VlFormValidation(Object).awaitUntilReady()
@@ -28,10 +28,6 @@ export class VlInputField extends VlFormValidation(NativeVlElement(HTMLInputElem
 
   get _classPrefix() {
     return 'vl-input-field--';
-  }
-
-  get _stylePath() {
-    return '../style.css';
   }
 
   _dress() {
