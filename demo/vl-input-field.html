@@ -69,11 +69,11 @@
 
             <script>
                 customElements.whenDefined('vl-input-field').then(() => {
-                    const inputField = document.querySelector('#input-field-met-event');
-                    inputField.addEventListener('input', (e) => {
-                        const copy = document.querySelector('#input-field-copy');
-                        copy.value = inputField.value;
-                    });
+                  const inputField = document.querySelector('#input-field-met-event');
+                  inputField.addEventListener('input', (e) => {
+                    const copy = document.querySelector('#input-field-copy');
+                    copy.value = inputField.value;
+                  });
                 });
             </script>
         </vl-demo>
