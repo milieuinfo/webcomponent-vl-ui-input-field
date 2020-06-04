@@ -5,7 +5,7 @@ describe('vl-input-field', async () => {
   const vlInputFieldPage = new VlInputFieldPage(driver);
 
   before(async () => {
-    return vlInputFieldPage.load();
+    await vlInputFieldPage.load();
   });
 
   it('Als gebruiker kan ik text inputten in een inputfield', async () => {
@@ -55,9 +55,12 @@ describe('vl-input-field', async () => {
     await assert.eventually.isTrue(inputFieldSmall.isSmall());
   });
 
-  it('Als gebruiker kan ik aan een input-field validatie regels toevoegen zodat er foutboodschappen verschijnen bij het verkeerdelijk gebruik van het input-field', async () => {
+  it('Als gebruiker krijg ik geen foutmeldingen te zien wanneer ik de input velden correct invul', async () => {
     await vulFormulierIn('Jos', 'BE68 5390 0754 7034');
     await assertFormErrors('', '');
+  });
+
+  it('Als gebruiker krijg ik foutmeldingen te zien wanneer ik de input velden niet correct invul', async () => {
     await vulFormulierIn('', 'BE68 5390 0754 703');
     await assertFormErrors('Veld "Voornaam" is verplicht', 'Een geldig "IBAN-nummer" is verplicht');
   });
@@ -79,7 +82,8 @@ describe('vl-input-field', async () => {
     const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
     await inputFieldVoornaam.setValue(voornaam);
     await inputFieldIban.setValue(iban);
-    return await vlInputFieldPage.validateForm();
+    await inputFieldVoornaam.click();
+    await vlInputFieldPage.validateForm();
   }
 
   async function assertFormErrors(voornaamErrorMsg, ibanErrorMsg) {
