@@ -44,7 +44,7 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "^5.5.2",
+    "vl-ui-core": "^5.5.4",
     "vl-ui-form-validation": "github:milieuinfo/webcomponent-vl-ui-form-validation"
   },
   "peerDependencies": {
@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "3.9.2",
-    "vl-ui-button": "^5.0.2",
-    "vl-ui-util": "^5.2.3"
+    "vl-ui-button": "^5.0.5",
+    "vl-ui-util": "^5.2.4"
   }
 }
