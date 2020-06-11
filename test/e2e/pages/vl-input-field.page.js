@@ -61,7 +61,7 @@ class VlInputFieldPage extends Page {
   }
 
   async load() {
-    await super.load(Config.baseUrl + '/demo/vl-input-field.html?no-header=true&no-footer=true');
+    await super.load(Config.baseUrl + '/demo/vl-input-field.html');
   }
 }
 
