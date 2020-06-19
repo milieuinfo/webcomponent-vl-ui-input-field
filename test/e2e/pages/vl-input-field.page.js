@@ -1,8 +1,6 @@
 const VlInputField = require('../components/vl-input-field');
 const {Page, Config} = require('vl-ui-core').Test;
 const {By} = require('vl-ui-core').Test.Setup;
-const {VlHeader} = require('vl-ui-header').Test;
-const {VlFooter} = require('vl-ui-footer').Test;
 
 class VlInputFieldPage extends Page {
   async _getInputField(selector) {
@@ -64,10 +62,6 @@ class VlInputFieldPage extends Page {
 
   async load() {
     await super.load(Config.baseUrl + '/demo/vl-input-field.html');
-    const header = await new VlHeader(this.driver);
-    const footer = await new VlFooter(this.driver);
-    await header.remove();
-    await footer.remove();
   }
 }
 

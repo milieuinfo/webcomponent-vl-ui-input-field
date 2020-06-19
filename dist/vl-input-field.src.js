@@ -1,22 +1,22 @@
-import { NativeVlElement, define } from 'vl-ui-core';
-import { VlFormValidation } from 'vl-ui-form-validation';
+import {nativeVlElement, define} from 'vl-ui-core';
+import {vlFormValidation} from 'vl-ui-form-validation';
 
 Promise.all([
-  VlFormValidation(Object).awaitUntilReady()
-]).then(() => define('vl-input-field', VlInputField, { extends: 'input' }));
+  vlFormValidation(Object).awaitUntilReady(),
+]).then(() => define('vl-input-field', VlInputField, {extends: 'input'}));
 
 /**
 * VlInputField
 * @class
 * @classdesc Het input field laat de gebruiker toe om een informatie in te vullen in uw applicatie: bijvoorbeeld een email adres of een wachtwoord.
-* 
-* @extends NativeVlElement
-* 
+*
+* @extend HTMLInputElement
+*
 * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-input-field/releases/latest|Release notes}
 * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-input-field/issues|Issues}
 * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-input-field.html|Demo}
 */
-export class VlInputField extends VlFormValidation(NativeVlElement(HTMLInputElement)) {
+export class VlInputField extends vlFormValidation(nativeVlElement(HTMLInputElement)) {
   static get _observedChildClassAttributes() {
     return ['block', 'small', 'error', 'success', 'disabled'];
   }
@@ -37,5 +37,5 @@ export class VlInputField extends VlFormValidation(NativeVlElement(HTMLInputElem
       this.dress(this.form);
     }
   }
-
 }
+
