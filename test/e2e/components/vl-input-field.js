@@ -1,7 +1,12 @@
-const {VlFormValidation} = require('vl-ui-form-validation').Test;
+const {vlFormValidation} = require('vl-ui-form-validation').Test;
+const {vlPattern} = require('vl-ui-pattern').Test;
 const {Key} = require('selenium-webdriver');
 
 class VlInputField extends VlFormValidation {
+  constructor(driver, identifier) {
+    super(driver, identifier, [vlFormValidation, vlPattern]);
+  }
+
   async setValue(content) {
     await super.clear();
     return this.sendKeys(content);
