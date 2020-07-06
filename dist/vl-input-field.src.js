@@ -3,8 +3,8 @@ import {vlFormValidation} from 'vl-ui-form-validation';
 import {vlPattern} from 'vl-ui-pattern';
 
 Promise.all([
-  vlFormValidation.awaitUntilReady(),
-  vlPattern.awaitUntilReady(),
+  vlFormValidation.ready(),
+  vlPattern.ready(),
 ]).then(() => define('vl-input-field', VlInputField, {extends: 'input'}));
 
 /**
