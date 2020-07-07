@@ -45,17 +45,15 @@
   },
   "dependencies": {
     "vl-ui-core": "^5.5.4",
-    "vl-ui-form-validation": "github:milieuinfo/webcomponent-vl-ui-form-validation#mixin",
-    "vl-ui-pattern": "github:milieuinfo/webcomponent-vl-ui-pattern#setup"
+    "vl-ui-form-validation": "github:milieuinfo/webcomponent-vl-ui-form-validation"
   },
   "peerDependencies": {
     "vl-ui-core": "^5.5.2",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#mixin",
-    "vl-ui-pattern": "milieuinfo/webcomponent-vl-ui-pattern#setup"
+    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "^3.9.2",
     "vl-ui-button": "^5.0.5",
-    "vl-ui-util": "^5.2.8"
+    "vl-ui-util": "^5.6.0"
   }
 }
