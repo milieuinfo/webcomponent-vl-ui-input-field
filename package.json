@@ -54,6 +54,6 @@
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "^3.9.2",
     "vl-ui-button": "^5.0.5",
-    "vl-ui-util": "^5.6.0"
+    "vl-ui-util": "^5.2.9"
   }
 }
