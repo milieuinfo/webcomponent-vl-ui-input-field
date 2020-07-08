@@ -46,12 +46,12 @@
   "dependencies": {
     "vl-ui-core": "^5.5.4",
     "vl-ui-form-validation": "github:milieuinfo/webcomponent-vl-ui-form-validation",
-    "vl-ui-pattern": "^1.0.1 "
+    "vl-ui-pattern": "^1.0.2"
   },
   "peerDependencies": {
     "vl-ui-core": "^5.5.2",
     "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation",
-    "vl-ui-pattern": "^1.0.1"
+    "vl-ui-pattern": "^1.0.2"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "^3.9.2",
