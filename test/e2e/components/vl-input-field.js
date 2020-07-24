@@ -10,7 +10,11 @@ class VlInputField extends VlElement {
 
   async setValue(content) {
     await super.clear();
-    return this.sendKeys(content);
+    try {
+      await this.sendKeys(content);
+    } catch (error) {
+      await this.driver.executeScript(`arguments[0].value='${content}'`, this);
+    }
   }
 
   async getValue() {
