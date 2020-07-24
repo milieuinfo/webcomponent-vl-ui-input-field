@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-input-field",
-  "version": "3.1.5",
+  "version": "3.2.0",
   "description": "Een input veld laat de gebruiker toe om informatie in te voeren in een applicatie.",
   "author": "DIDM",
   "license": "MIT",
@@ -44,18 +44,18 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "^5.5.4",
+    "vl-ui-core": "^5.6.1",
     "vl-ui-form-validation": "^3.2.0",
     "vl-ui-pattern": "^1.0.2"
   },
   "peerDependencies": {
-    "vl-ui-core": "^5.5.2",
+    "vl-ui-core": "^5.6.1",
     "vl-ui-form-validation": "^3.2.0",
     "vl-ui-pattern": "^1.0.2"
   },
   "devDependencies": {
     "@govflanders/vl-ui-input-field": "^3.9.2",
     "vl-ui-button": "^5.0.5",
-    "vl-ui-util": "^5.2.9"
+    "vl-ui-util": "^5.2.10"
   }
 }
