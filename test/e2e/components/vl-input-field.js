@@ -22,19 +22,19 @@ class VlInputField extends VlElement {
   }
 
   async isBlock() {
-    return this.hasAttribute('block');
+    return this.hasAttribute('data-vl-block');
   }
 
   async isError() {
-    return this.hasAttribute('error');
+    return this.hasAttribute('data-vl-error');
   }
 
   async isSuccess() {
-    return this.hasAttribute('success');
+    return this.hasAttribute('data-vl-success');
   }
 
   async isSmall() {
-    return this.hasAttribute('small');
+    return this.hasAttribute('data-vl-small');
   }
 
   async clear() {
