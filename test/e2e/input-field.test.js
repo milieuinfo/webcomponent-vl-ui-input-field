@@ -1,4 +1,4 @@
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, driver, Key} = require('vl-ui-core').Test.Setup;
 const VlInputFieldPage = require('./pages/vl-input-field.page');
 
 describe('vl-input-field', async () => {
@@ -81,8 +81,9 @@ describe('vl-input-field', async () => {
     const inputFieldVoornaam = await vlInputFieldPage.getInputFieldVoornaam();
     const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
     await inputFieldVoornaam.setValue(voornaam);
+    await inputFieldVoornaam.sendKeys(Key.TAB);
     await inputFieldIban.setValue(iban);
-    await inputFieldVoornaam.click();
+    await inputFieldIban.sendKeys(Key.TAB);
     await vlInputFieldPage.validateForm();
   }
 
