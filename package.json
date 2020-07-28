@@ -45,12 +45,12 @@
   },
   "dependencies": {
     "vl-ui-core": "^5.6.1",
-    "vl-ui-form-validation": "^3.2.0",
+    "vl-ui-form-validation": "^3.2.1",
     "vl-ui-pattern": "^1.0.2"
   },
   "peerDependencies": {
     "vl-ui-core": "^5.6.1",
-    "vl-ui-form-validation": "^3.2.0",
+    "vl-ui-form-validation": "^3.2.1",
     "vl-ui-pattern": "^1.0.2"
   },
   "devDependencies": {
