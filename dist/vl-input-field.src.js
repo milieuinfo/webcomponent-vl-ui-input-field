@@ -14,6 +14,12 @@ Promise.all([
 *
 * @extend HTMLInputElement
 *
+* @property {boolean} block - Het input-veld zal de breedte van zijn parent aannemen
+* @property {boolean} small - Kleine variant van het input-field
+* @property {boolean} error - Zorgt ervoor dat er een rode rand rond het input-veld verschijnt 
+* @property {boolean} success - Zorgt ervoor dat er een groene rand rond het input-veld verschijnt
+* @property {boolean} disabled - Schakelt interactie door de gebruiker uit
+*
 * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-input-field/releases/latest|Release notes}
 * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-input-field/issues|Issues}
 * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-input-field.html|Demo}
