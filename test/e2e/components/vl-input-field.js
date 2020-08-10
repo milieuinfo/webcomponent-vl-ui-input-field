@@ -1,7 +1,7 @@
 const {VlElement} = require('vl-ui-core').Test;
+const {Key} = require('vl-ui-core').Test.Setup;
 const {vlFormValidation} = require('vl-ui-form-validation').Test;
 const {vlPattern} = require('vl-ui-pattern').Test;
-const {Key} = require('selenium-webdriver');
 
 class VlInputField extends VlElement {
   constructor(driver, identifier) {

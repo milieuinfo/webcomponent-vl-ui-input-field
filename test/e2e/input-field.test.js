@@ -1,4 +1,4 @@
-const {assert, driver, Key} = require('vl-ui-core').Test.Setup;
+const {assert, driver} = require('vl-ui-core').Test.Setup;
 const VlInputFieldPage = require('./pages/vl-input-field.page');
 
 describe('vl-input-field', async () => {

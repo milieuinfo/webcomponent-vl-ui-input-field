@@ -56,9 +56,9 @@
         const field = fixture('vl-input-field-fixture');
         ['block', 'small', 'error', 'success', 'disabled'].forEach((attribuut) => {
           assert.isFalse(field.classList.contains('vl-input-field--' + attribuut));
-          field.setAttribute(attribuut, '');
+          field.setAttribute(`data-vl-${attribuut}`, '');
           assert.isTrue(field.classList.contains('vl-input-field--' + attribuut));
-          field.removeAttribute(attribuut);
+          field.removeAttribute(`data-vl-${attribuut}`);
           assert.isFalse(field.classList.contains('vl-input-field--' + attribuut));
         });
       });
@@ -88,8 +88,8 @@
         const field = fixture('vl-input-field-fixture');
         const formField = fixture('vl-input-field-inside-form-fixture').querySelector('input');
         ['success', 'error'].forEach((type) => {
-          assert.isFalse(field.hasAttribute('data-vl-' + type + '-class'));
-          assert.equal(formField.getAttribute('data-vl-' + type + '-class'), 'vl-input-field--' + type);
+          assert.isFalse(field.hasAttribute(`data-vl-${type}-class`));
+          assert.equal(formField.getAttribute(`data-vl-${type}-class`), 'vl-input-field--' + type);
         });
       });
     });
