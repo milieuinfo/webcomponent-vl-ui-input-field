@@ -4,19 +4,21 @@
 <head>
     <title>vl-input-field voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
-
-    <script type="module" src="/src/vl-input-field.js"></script>
+    <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
     <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
     <script type="module" src="/node_modules/vl-ui-form-grid/dist/vl-form-grid.js"></script>
     <script type="module" src="/node_modules/vl-ui-form-message/dist/vl-form-message.js"></script>
 
+    <script type="module" src="/src/vl-input-field.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/src/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-form-grid/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-form-message/dist/style.css"/>
 </head>
 
-<body>
+<body is="vl-body">
     <vl-demo-page data-vl-webcomponent="vl-input-field" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-input-field">
         <vl-demo data-vl-title="Input-field">
             <input is="vl-input-field" id="input-field" />
@@ -44,15 +46,15 @@
 
         <vl-demo data-vl-title="Formulier validatie">
             <form>
-                <div is="vl-form-grid" is-stacked>
-                    <div is="vl-form-column" size="12">
+                <div is="vl-form-grid" data-vl-is-stacked>
+                    <div is="vl-form-column" data-vl-size="12">
                         <label is="vl-form-label" for="input-voornaam" data-vl-block>Voornaam</label>
                         <input id="input-voornaam" is='vl-input-field' placeholder="Jos" data-vl-block data-required="true"
                             data-vl-error-message='Veld "Voornaam" is verplicht'
                             data-vl-error-placeholder="validation-voornaam-error" />
                         <p is="vl-form-validation-message" data-vl-error id="validation-voornaam-error-message" data-vl-error-id="validation-voornaam-error"></p>
                     </div>
-                    <div is="vl-form-column" size="12">
+                    <div is="vl-form-column" data-vl-size="12">
                         <label is="vl-form-label" for="input-iban" data-vl-block>IBAN-nummer</label>
                         <input id="input-iban" is='vl-input-field' placeholder="BE00 0000 0000 0000" data-vl-block type="text"
                             data-required="true" data-vl-error-message='Een geldig "IBAN-nummer" is verplicht'
