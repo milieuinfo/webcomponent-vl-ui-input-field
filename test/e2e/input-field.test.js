@@ -9,7 +9,7 @@ describe('vl-input-field', async () => {
   });
 
   it('Als gebruiker kan ik text inputten in een inputfield', async () => {
-    const inputText = 'https://webcomponenten.omgeving.vlaanderen.be/doc/index.html';
+    const inputText = 'text';
     const inputField = await vlInputFieldPage.getInputField();
     await inputField.setValue(inputText);
     await assert.eventually.equal(inputField.getValue(), inputText);
