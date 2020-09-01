@@ -3,10 +3,6 @@ const {Page, Config} = require('vl-ui-core').Test;
 const {By} = require('vl-ui-core').Test.Setup;
 
 class VlInputFieldPage extends Page {
-  async _getInputField(selector) {
-    return new VlInputField(this.driver, selector);
-  }
-
   async getInputField() {
     return this._getInputField('#input-field');
   }
@@ -62,6 +58,10 @@ class VlInputFieldPage extends Page {
 
   async load() {
     await super.load(Config.baseUrl + '/demo/vl-input-field.html');
+  }
+
+  async _getInputField(selector) {
+    return new VlInputField(this.driver, selector);
   }
 }
 

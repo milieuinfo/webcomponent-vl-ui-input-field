@@ -1,10 +1,20 @@
-const {VlFormValidation} = require('vl-ui-form-validation').Test;
-const {Key} = require('selenium-webdriver');
+const {VlElement} = require('vl-ui-core').Test;
+const {Key} = require('vl-ui-core').Test.Setup;
+const {vlFormValidation} = require('vl-ui-form-validation').Test;
+const {vlPattern} = require('vl-ui-pattern').Test;
 
-class VlInputField extends VlFormValidation {
+class VlInputField extends VlElement {
+  constructor(driver, identifier) {
+    super(driver, identifier, [vlFormValidation, vlPattern]);
+  }
+
   async setValue(content) {
     await super.clear();
-    return this.sendKeys(content);
+    try {
+      await this.sendKeys(content);
+    } catch (error) {
+      await this.driver.executeScript(`arguments[0].value='${content}'`, this);
+    }
   }
 
   async getValue() {
@@ -12,19 +22,19 @@ class VlInputField extends VlFormValidation {
   }
 
   async isBlock() {
-    return this.hasAttribute('block');
+    return this.hasAttribute('data-vl-block');
   }
 
   async isError() {
-    return this.hasAttribute('error');
+    return this.hasAttribute('data-vl-error');
   }
 
   async isSuccess() {
-    return this.hasAttribute('success');
+    return this.hasAttribute('data-vl-success');
   }
 
   async isSmall() {
-    return this.hasAttribute('small');
+    return this.hasAttribute('data-vl-small');
   }
 
   async clear() {
