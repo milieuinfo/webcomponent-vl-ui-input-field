@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "vl-ui-core": "^6.0.1",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#datepicker",
+    "vl-ui-form-validation": "github:milieuinfo/webcomponent-vl-ui-form-validation#datepicker",
     "vl-ui-pattern": "^1.0.5"
   },
   "peerDependencies": {
