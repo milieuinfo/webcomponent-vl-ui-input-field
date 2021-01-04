@@ -31,7 +31,10 @@
     </template>
   </test-fixture>
 
-  <script>
+  <script type="module">
+    import {VlInputField} from '../../src/vl-input-field.js';
+    import {vlFormValidation} from '/node_modules/vl-ui-form-validation/dist/vl-form-validation-all.js';
+
     suite('vl-input-field', () => {
       const sandbox = sinon.createSandbox();
 
@@ -68,6 +71,10 @@
         const attribuut = 'onbeschikbaarattribuut';
         field.setAttribute(attribuut, '');
         assert.isFalse(field.classList.contains('vl-input-field--' + attribuut));
+      });
+
+      test('bevat de form validation observed attributes om correcte formulier validatie te realiseren', () => {
+        vlFormValidation._observedAttributes().forEach((attribute) => assert.include(VlInputField._observedAttributes, attribute));
       });
 
       test('indien het input veld onderdeel is van een formulier zal de validatie geactiveerd worden', () => {
