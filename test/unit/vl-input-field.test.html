@@ -83,15 +83,6 @@
         input = fixture('vl-input-field-pattern-fixture');
         assert(window.vl.pattern.dress.calledWith(input));
       });
-
-      test('de validatie succes en error class attributen worden correct gezet indien het input veld onderdeel is van een formulier', () => {
-        const field = fixture('vl-input-field-fixture');
-        const formField = fixture('vl-input-field-inside-form-fixture').querySelector('input');
-        ['success', 'error'].forEach((type) => {
-          assert.isFalse(field.hasAttribute(`data-vl-${type}-class`));
-          assert.equal(formField.getAttribute(`data-vl-${type}-class`), 'vl-input-field--' + type);
-        });
-      });
     });
   </script>
 </body>
