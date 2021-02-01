@@ -37,7 +37,7 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "^7.1.0",
+    "vl-ui-core": "^7.1.1",
     "vl-ui-form-validation": "^3.4.2",
     "vl-ui-pattern": "^1.0.6"
   },
