@@ -55,36 +55,4 @@ describe('vl-input-field', async () => {
     const inputFieldSmall = await vlInputFieldPage.getInputFieldSmall();
     await assert.eventually.isTrue(inputFieldSmall.isSmall());
   });
-
-  it('Als gebruiker krijg ik geen foutmeldingen te zien wanneer ik de input velden correct invul', async () => {
-    const inputFieldVoornaam = await vlInputFieldPage.getInputFieldVoornaam();
-    const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
-    await inputFieldVoornaam.setValue('Jos');
-    await inputFieldIban.setValue('BE68 5390 0754 7034');
-    await vlInputFieldPage.validateForm();
-    const inputFieldVoornaamErrorMessage = await vlInputFieldPage.getInputFieldVoornaamErrorMessage();
-    const inputFieldIbanErrorMessage = await vlInputFieldPage.getInputFieldIbanErrorMessage();
-    await assert.eventually.equal(inputFieldVoornaamErrorMessage.getText(), '');
-    await assert.eventually.equal(inputFieldIbanErrorMessage.getText(), '');
-  });
-
-  it('Als gebruiker krijg ik foutmeldingen te zien wanneer ik de input velden niet correct invul', async () => {
-    const inputFieldIban = await vlInputFieldPage.getInputFieldIban();
-    await inputFieldIban.setValue('BE68 5390 0754 703');
-    await vlInputFieldPage.validateForm();
-    const inputFieldIbanErrorMessage = await vlInputFieldPage.getInputFieldIbanErrorMessage();
-    await assert.eventually.equal(inputFieldIbanErrorMessage.getText(), 'Een geldig "IBAN-nummer" is verplicht');
-  });
-
-  it('Als gebruiker kan ik een input event opvangen als er iets in een input field getypt wordt en als het inputfield wordt leeggemaakt', async () => {
-    const inputText = 'foo';
-    const inputFieldMetEvent = await vlInputFieldPage.getInputFieldMetEvent();
-    const inputFieldCopy = await vlInputFieldPage.getInputFieldCopy();
-
-    await inputFieldMetEvent.setValue(inputText);
-    await assert.eventually.equal(inputFieldCopy.getValue(), inputText);
-
-    await inputFieldMetEvent.clear();
-    await assert.eventually.equal(inputFieldCopy.getValue(), '');
-  });
 });
